@@ -1,6 +1,6 @@
 import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for
-from notasimagenes.db import agregar_nota_imagen, buscar_notas_imagenes_por_nota_id, buscar_una_nota_por_id
+from notasimagenes.db import agregar_nota_imagen, buscar_notas_imagenes_por_nota_id, buscar_una_nota_por_id, buscar_nota_imagenes_por_id
 from constantes import UPLOAD_FOLDER
 
 notas_imagenes_page = Blueprint('notas_imagenes_page',__name__)
@@ -31,3 +31,14 @@ def nota_imagen(nota_id):
             return render_template("nota_imagen.html",nota=nota, nota_id=nota_id, notas_imagen=notas_imagen)
     else:
         return "Esta nota no existe"
+
+@notas_imagenes_page.route("/notas/<int:nota_id>/<int:nota_imagen_id>", methods=['GET'])
+def nota_imagen_perfil(nota_id, nota_imagen_id):
+    fila = buscar_nota_imagenes_por_id(nota_imagen_id)
+    if fila is None:
+        return "No existe la nota-imagen buscada"
+    else:
+        dir = os.path.join('upload/', str(nota_id))
+        dir = os.path.join(dir,fila[2])
+        fila = [dir, fila[3]]
+        return render_template("nota_imagen_perfil.html", fila=fila)

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+Perfil de nota-imagen
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block body %}
+    <h1>Hola</h1>    
+    <figure>
+        <img src="{{url_for('static', filename=fila[0])}}" alt="">
+        <figcaption>{{fila[1]}}</figcaption>
+    </figure>
+{% endblock %}

@@ -12,6 +12,24 @@ def buscar_notas_imagenes_por_nota_id(notas_id):
     conn.close()
     return list(filas)
 
+def buscar_nota_imagenes_por_id(nota_imagen_id):
+    sql = '''SELECT * FROM "%s" WHERE id=''' % (TABLA_NOTAS_IMAGENES)
+    sql += '''%s;'''
+    conn = None
+    fila = None
+    try:
+        conn = psycopg2.connect(dbname=DBNAME, user=USER)
+        c = conn.cursor()
+        c.execute(sql, (str(nota_imagen_id)))
+        fila = c.fetchone()
+        c.close()
+    except (psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+    return fila
+
 def agregar_nota_imagen(notas_id,titulo,descripcion):
     conn = None
     sql = '''INSERT INTO "%s" (notas_id,titulo,descripcion) VALUES '''  % (TABLA_NOTAS_IMAGENES)
