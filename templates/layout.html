@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}">
+        {% block style %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{{url_for('hola')}}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{url_for('notas_page.hola')}}">Notas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{url_for('notas_page.notaNueva')}}">Crear</a></li>
+            </ul>
+            <div class="">
+                <span style="color: white;"> Hola, Lucho!</span>
+            </div>
+        </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

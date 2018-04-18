@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='hola.css')}}">
+{% endblock %}
+{% block body %}
+    <main class="contenedor-principal">
+        <div class="">
+            <h2>Ultimas notas creadas</h2>
+            {% for nota in notas %}
+                <div class="contenedor">
+                    <div class="caja-contenido">
+                        <a class="titulo-nota" href="{{url_for('notas_page.notaEditar',notas_id=nota[0])}}"><h2>{{nota[1]}}</h2></a>
+                        <span style="white-space: pre-wrap">{{nota[2]}}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="titulo-chico">
+            <h3>Buscar en las notas</h3>
+            <form class="form-signin" action="" method="post">
+                <input class="form-control" type="text" name="" placeholder="Buscar nota..">
+                <input class="btn btn-primary separacion-chico" type="submit" value="Buscar">
+            </form>
+        </div>
+    </main>
+{% endblock %}

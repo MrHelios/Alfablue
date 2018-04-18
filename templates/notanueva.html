@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='hola.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="contenedor-login">
+        <form class="form-signin" action="{{url_for('notas_page.notaNueva')}}" method="post">
+            <h1 class="h2 font-weight-normal">Nota nueva</h1>
+            <input class="form-control" type="text" name="titulo" placeholder="Titulo">
+            <textarea class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido"></textarea>
+            <button class="btn btn-primary" type="submit" name="button">Crear</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,110 @@
+html, body {
+    background-color: rgba(241,241,241,255);
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav {
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+    background-color: rgba(51,51,51,255);
+}
+
+.nav-font {
+    color: white;
+
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 18px;
+
+    font-size: 16px;
+}
+
+.divisor-nav-izq {
+    float: left;
+}
+
+.divisor-nav-der {
+    float: right;
+}
+
+.caja-decoradora {
+    float: left;
+    height: 100px;
+    width: 10px;
+    background-color: red;
+}
+
+.caja-contenido {
+    margin: 10px;
+}
+
+.contenedor-grande {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.contenedor-chico {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.contenedor {
+    display: inline-block;
+    background-color: white;
+
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    border-top-width: 4px;
+
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.titulo-nota {
+    color: black;
+}
+
+.texto-nota {
+    padding-right: 10px;
+}
+
+.titulo-chico {
+    width: 40%;
+    padding-top: 10px;
+}
+
+.form-chico {
+    margin-left: 2.5%;
+}
+
+.input-form-titulo {
+    margin-top: 10px;
+    width: 50%;
+}
+
+.input-form {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.separacion-chico {
+    margin-top: 5px;
+}
+
+.contenedor-principal {
+    margin: 10px;
+}
+
+.contenedor-login {
+    margin: 10px;
+}

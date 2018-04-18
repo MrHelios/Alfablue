@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Borrar nota</title>
+    </head>
+    <body>
+        <nav>
+            <a href="{{url_for('notas_page.hola')}}">Menu</a>
+        </nav>
+        <h1>Estas seguro que deseas borrar esta nota?</h1>
+        <form class="" action="{{url_for('notas_page.notaBorrar',notas_id=nota[0])}}" method="post">
+            <input type="submit" value="Si">
+        </form>
+        <h2>{{nota[1]}}</h2>
+        <p>{{nota[2]}}</p>
+    </body>
+</html>

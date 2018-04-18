@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+Subir archivos
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block body %}
+    <h2>{{nota[1]}}</h2>
+    <span style="white-space: pre-wrap">{{nota[2]}}</span>
+
+    <h2>Subir un archivo</h2>
+    <form class="" enctype="multipart/form-data" action="{{url_for('notas_imagenes_page.nota_imagen',nota_id=nota_id)}}" method="post">
+        <input type="hidden" name="id" value="{{nota_id}}"><br>
+        <input type="file" name="file"><br>
+        <textarea type="text" name="descripcion" placeholder="Agregar comentario"></textarea><br>
+        <input class="btn btn-primary" type="submit" name="" value="Subir">
+    </form>
+
+    {% for nota in notas_imagen %}
+        <figure>
+            <img src="{{url_for('static', filename=nota[2])}}" alt="">
+            <figcaption><p>{{nota[3]}}</p></figcaption>
+        </figure>
+    {% endfor %}
+{% endblock %}
