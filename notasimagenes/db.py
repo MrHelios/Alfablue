@@ -46,6 +46,23 @@ def agregar_nota_imagen(notas_id,titulo,descripcion):
         if conn is not None:
             conn.close()
 
+def borrar_una_nota_imagen_por_id(nota_imagen_id):
+    sql = '''DELETE FROM "%s" WHERE id=''' % (TABLA_NOTAS_IMAGENES)
+    sql += '''%s;'''
+    conn = None
+    try:
+        conn = psycopg2.connect(dbname=DBNAME, user=USER)
+        c = conn.cursor()
+        c.execute(sql, str(nota_imagen_id))
+        conn.commit()
+        c.close()
+        conn.close()
+    except (psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+
 def buscar_una_nota_por_id(id):
     conn = psycopg2.connect(dbname=DBNAME, user=USER)
     c = conn.cursor()

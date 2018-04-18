@@ -7,7 +7,10 @@ Perfil de nota-imagen
 {% endblock %}
 
 {% block body %}
-    <h1>Hola</h1>    
+    <h1>Hola</h1>
+    <form action="{{url_for('notas_imagenes_page.nota_imagen_perfil', nota_id=fila[2], nota_imagen_id=fila[3])}}" method="post">
+        <input class="btn btn-danger" type="submit" value="Borrar">
+    </form>
     <figure>
         <img src="{{url_for('static', filename=fila[0])}}" alt="">
         <figcaption>{{fila[1]}}</figcaption>
