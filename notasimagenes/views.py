@@ -1,17 +1,15 @@
 import os
 from flask import Flask, Blueprint, render_template, request, redirect, url_for
 from notasimagenes.db import agregar_nota_imagen, buscar_notas_imagenes_por_nota_id, buscar_una_nota_por_id
+from constantes import UPLOAD_FOLDER
 
 notas_imagenes_page = Blueprint('notas_imagenes_page',__name__)
-
-UPLOAD_FOLDER = "/home/lucho/site/static/upload/"
 
 @notas_imagenes_page.route("/notas/<int:nota_id>", methods=['GET','POST'])
 def nota_imagen(nota_id):
     nota = buscar_una_nota_por_id(nota_id)
     dir = os.path.join(UPLOAD_FOLDER, str(nota_id))
     if os.path.isdir(dir):
-    #if True:
         if request.method == 'POST':
             id = request.form['id']
             dir = os.path.join(UPLOAD_FOLDER, id)

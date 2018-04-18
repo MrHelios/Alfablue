@@ -5,6 +5,9 @@
 {% block body %}
     <div class="contenedor-login">
         <h1>Editar nota</h1>
+        <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
+            <button class="btn btn-primary" type="button">Ver nota</button>
+        </a>
         <form class="form-signin" action="{{url_for('notas_page.notaEditar',notas_id=notas_id)}}" method="post">
             <input class="form-control" type="text" name="titulo" value="{{nota[1]}}">
             <textarea class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
