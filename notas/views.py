@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request
-from notas.db import todas_las_notas, agregar_una_nota, buscar_una_nota_por_id, borrar_una_nota_por_id, actualizar_nota
-from notasimagenes.db import comprobar_notas
+from otros.db import todas_las_notas, agregar_una_nota, buscar_una_nota_por_id, borrar_una_nota_por_id, actualizar_nota, comprobar_notas
 
 notas_page = Blueprint('notas_page',__name__)
 
