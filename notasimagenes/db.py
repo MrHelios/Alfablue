@@ -1,5 +1,6 @@
 import os
 import psycopg2
+from constantes import UPLOAD_FOLDER
 
 def buscar_notas_imagenes_por_nota_id(notas_id):
     sql = '''SELECT * FROM "%s" WHERE notas_id=''' % (TABLA_NOTAS_IMAGENES)
@@ -83,7 +84,7 @@ def todas_las_notas():
     return list(filas)
 
 def comprobar_notas():
-    dir_up = 'static/upload'
+    dir_up = UPLOAD_FOLDER
     if not os.path.isdir(dir_up):
         os.mkdir(dir_up)
     for nota in todas_las_notas():

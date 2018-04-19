@@ -1,17 +1,19 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from notas.db import todas_las_notas, agregar_una_nota, buscar_una_nota_por_id, borrar_una_nota_por_id, actualizar_nota
+from notasimagenes.db import comprobar_notas
 
 notas_page = Blueprint('notas_page',__name__)
 
 @notas_page.route('/notas')
 def hola():
-    notas = todas_las_notas()    
+    notas = todas_las_notas()
     return render_template('hola.html', notas=notas)
 
 @notas_page.route('/notas/crear', methods=['GET','POST'])
 def notaNueva():
     if request.method == 'POST':
         agregar_una_nota(request.form['contenido'], request.form['titulo'])
+        comprobar_notas()
         return redirect(url_for('notas_page.hola'))
     else:
         return render_template('notanueva.html')
