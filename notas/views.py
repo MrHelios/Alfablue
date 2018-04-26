@@ -1,3 +1,4 @@
+from urllib.parse import unquote
 from flask import Blueprint, render_template, redirect, url_for, request
 from otros.db import todas_las_notas, agregar_una_nota, buscar_una_nota_por_id, borrar_una_nota_por_id, actualizar_nota, comprobar_notas
 
@@ -21,7 +22,9 @@ def notaNueva():
 def notaEditar(notas_id):
     nota = buscar_una_nota_por_id(notas_id)
     if request.method == 'POST':
-        actualizar_nota(notas_id, request.form['titulo'], request.form['contenido'])
+        a,b=request.data.decode('utf-8').split('&contenido=')
+        a = a[7:]        
+        actualizar_nota(notas_id, unquote(a), unquote(b))
         return redirect(url_for('notas_page.hola'))
     else:
         return render_template('notaeditar.html', nota=nota, notas_id=notas_id)

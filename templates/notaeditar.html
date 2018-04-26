@@ -8,11 +8,28 @@
         <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
             <button class="btn btn-primary" type="button">Ver nota</button>
         </a>
-        <form class="form-signin" action="{{url_for('notas_page.notaEditar',notas_id=notas_id)}}" method="post">
-            <input class="form-control" type="text" name="titulo" value="{{nota[1]}}">
-            <textarea class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
-            <button class="btn btn-primary" type="submit" name="button">Editar</button>
-            <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}"><input class="btn btn-danger" type="submit" value="Borrar nota"></a>
-        </form>
+        <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
+            <input class="btn btn-danger" type="submit" value="Borrar nota">
+        </a>
+        <div class="form-signin">
+            <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
+            <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>            
+        </div>
     </div>
+
+    <script src="{{url_for('static', filename='jquery/jquery.min.js')}}"></script>
+    <script type="text/javascript">
+        function guardar() {
+            t = document.getElementById("titulo-nota").value
+            c = document.getElementById("contenido-nota").value
+            $.ajax({
+                method: 'POST',
+                url: "{{url_for('notas_page.notaEditar', notas_id=notas_id)}}",
+                contentType: 'application/json',
+                data: {titulo: t, contenido: c}
+            });
+        };
+
+        setInterval(guardar, 15000);
+    </script>
 {% endblock %}
