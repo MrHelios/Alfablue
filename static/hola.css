@@ -1,5 +1,4 @@
 html, body {
-    background-color: rgba(241,241,241,255);
     margin: 0px;
     padding: 0px;
 }
@@ -61,9 +60,10 @@ a {
     background-color: white;
 
     border-style: solid;
-    border-color: red;
+    border-color: grey;
     border-width: 1px;
     border-top-width: 4px;
+    border-top-color: red;
 
     margin-top: 10px;
     margin-left: 5%;

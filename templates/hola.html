@@ -9,8 +9,14 @@
             {% for nota in notas %}
                 <div class="contenedor">
                     <div class="caja-contenido">
-                        <a class="titulo-nota" href="{{url_for('notas_page.notaEditar',notas_id=nota[0])}}"><h2>{{nota[1]}}</h2></a>
-                        <span style="white-space: pre-wrap">{{nota[2]}}</span>
+                        <a class="titulo-nota" href="{{url_for('notas_page.notaEditar',notas_id=nota[0])}}">
+                            <figure>
+                                <img src="{{url_for('static', filename='imagenes/file.jpeg')}}" alt="">
+                                <figcaption>
+                                    {{nota[1]}}
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                 </div>
             {% endfor %}
