@@ -134,3 +134,10 @@ a {
     padding-left: 10px;
     list-style-type: none;
 }
+
+.titulo-editar {
+    padding-left: 5px;
+    border-left-color: #2fea13;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
