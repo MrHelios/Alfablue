@@ -3,17 +3,27 @@
     <link rel="stylesheet" href="{{url_for('static', filename='hola.css')}}">
 {% endblock %}
 {% block body %}
+    <div id="sidebar-wrapper">
+        <ul class="ul-editar">
+          <li class="">
+              <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
+                  <input class="btn btn-primary" type="submit" value="">
+              </a>
+          </li>
+          <li class="">
+              <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
+                  <input class="btn btn-danger" type="submit" value="">
+              </a>
+          </li>
+        </ul>
+    </div>
+
     <div class="contenedor-login">
         <h1>Editar nota</h1>
-        <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
-            <button class="btn btn-primary" type="button">Ver nota</button>
-        </a>
-        <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
-            <input class="btn btn-danger" type="submit" value="Borrar nota">
-        </a>
+
         <div class="form-signin">
             <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
-            <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>            
+            <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
         </div>
     </div>
 
