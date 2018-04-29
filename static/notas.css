@@ -11,9 +11,16 @@
     list-style-type: none;
 }
 
-.titulo-editar {
+#titulo-editar {
     padding-left: 5px;
     border-left-color: #2fea13;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+#titulo-editar-singuardado {
+    padding-left: 5px;
+    border-left-color: #eae713;
     border-left-width: 5px;
     border-left-style: solid;
 }

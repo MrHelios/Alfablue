@@ -24,7 +24,7 @@
     </div>
 
     <div class="contenedor-login">
-        <h1 class="titulo-editar">Editar nota</h1>
+        <h1 id="titulo-editar">Editar nota</h1>
 
         <div class="container-edit">
             <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
@@ -35,16 +35,38 @@
     <script src="{{url_for('static', filename='jquery/jquery.min.js')}}"></script>
     <script type="text/javascript">
         function guardar() {
-            t = document.getElementById("titulo-nota").value
-            c = document.getElementById("contenido-nota").value
-            $.ajax({
-                method: 'POST',
-                url: "{{url_for('notas_page.notaEditar', notas_id=notas_id)}}",
-                contentType: 'application/json',
-                data: {titulo: t, contenido: c}
-            });
+            if(estado_guardar = true) {
+                t = document.getElementById("titulo-nota").value
+                c = document.getElementById("contenido-nota").value
+                $.ajax({
+                    method: 'POST',
+                    url: "{{url_for('notas_page.notaEditar', notas_id=notas_id)}}",
+                    contentType: 'application/json',
+                    data: {titulo: t, contenido: c}
+                }).done(function(){
+                    $('#titulo-editar-singuardado').attr('id','titulo-editar');
+                    viejo = $('#contenido-nota').val();
+                    estado_guardar = false;
+                });
+            }
         };
 
         setInterval(guardar, 15000);
+    </script>
+    <script type="text/javascript">
+        function detectarCambio() {
+            actual = $('#contenido-nota').val();
+            if(viejo == actual) {
+                viejo = actual;
+            }
+            else {
+                $('#titulo-editar').attr('id','titulo-editar-singuardado');
+                estado_guardar = true;
+            }
+        };
+
+        estado_guardar = false;
+        viejo = $('#contenido-nota').val();
+        setInterval(detectarCambio, 2000);
     </script>
 {% endblock %}
