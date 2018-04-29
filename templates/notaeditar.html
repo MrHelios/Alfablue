@@ -6,6 +6,11 @@
     <div id="sidebar-wrapper">
         <ul class="ul-editar">
           <li class="">
+                <a href="{{url_for('notas_page.notaNueva')}}">
+                    <input class="btn btn-success boton-editar" type="submit" value="">
+                </a>
+          </li>
+          <li class="">
               <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
                   <input class="btn btn-primary boton-editar" type="submit" value="">
               </a>
