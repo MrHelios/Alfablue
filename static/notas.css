@@ -29,6 +29,10 @@
     margin-top: 10px;
 }
 
-.container-edit {    
+.container-edit {
     height: 100%;
+}
+
+#titulo-nota {
+    margin-bottom: 5px;
 }
