@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
 {% block style %}
-    <link rel="stylesheet" href="{{url_for('static', filename='hola.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='notas.css')}}">
 {% endblock %}
 {% block body %}
     <div id="sidebar-wrapper">
         <ul class="ul-editar">
           <li class="">
               <a href="{{url_for('notas_imagenes_page.nota_imagen', nota_id=notas_id)}}">
-                  <input class="btn btn-primary" type="submit" value="">
+                  <input class="btn btn-primary boton-editar" type="submit" value="">
               </a>
           </li>
           <li class="">
               <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
-                  <input class="btn btn-danger" type="submit" value="">
+                  <input class="btn btn-danger boton-editar" type="submit" value="">
               </a>
           </li>
         </ul>
@@ -21,7 +21,7 @@
     <div class="contenedor-login">
         <h1 class="titulo-editar">Editar nota</h1>
 
-        <div class="form-signin">
+        <div class="container-edit">
             <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
             <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
         </div>

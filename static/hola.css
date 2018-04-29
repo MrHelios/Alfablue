@@ -110,34 +110,3 @@ a {
     margin-right: 10px;
     margin-top: 10px;
 }
-
-.row{
-    margin-left:0px;
-    margin-right:0px;
-}
-
-#wrapper {
-    padding-left: 70px;
-    transition: all .4s ease 0s;
-    height: 100%
-}
-
-#sidebar-wrapper {
-    width: 50px;
-    background: #f6f6f6;
-    position: fixed;
-    height: 100%;
-    z-index: 10000;
-}
-
-.ul-editar {
-    padding-left: 10px;
-    list-style-type: none;
-}
-
-.titulo-editar {
-    padding-left: 5px;
-    border-left-color: #2fea13;
-    border-left-width: 5px;
-    border-left-style: solid;
-}

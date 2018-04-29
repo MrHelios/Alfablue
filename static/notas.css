@@ -1,0 +1,34 @@
+#sidebar-wrapper {
+    width: 50px;
+    background: #f6f6f6;
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+}
+
+.ul-editar {
+    padding-left: 10px;
+    list-style-type: none;
+}
+
+.titulo-editar {
+    padding-left: 5px;
+    border-left-color: #2fea13;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+.boton-editar {
+    width: 30px;
+    height: 20px;
+}
+
+.contenedor-login {
+    margin-left: 60px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.container-edit {    
+    height: 100%;
+}
