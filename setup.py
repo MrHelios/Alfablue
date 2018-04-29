@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, url_for
 from notas.views import notas_page
 from notasimagenes.views import notas_imagenes_page
 from constantes import UPLOAD_FOLDER
@@ -11,7 +11,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def hola():
-    return "Hola mundo"
+    return render_template('layout.html')
 
 if __name__=="__main__":
     app.debug = True
