@@ -16,19 +16,27 @@
               </a>
           </li>
           <li class="">
-              <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
-                  <input class="btn btn-danger boton-editar" type="submit" value="">
-              </a>
+              <input id="nota-borrar-btn" class="btn btn-danger boton-editar" type="submit" value="">
           </li>
         </ul>
     </div>
 
     <div class="contenedor-login">
-        <h1 id="titulo-editar">Editar nota</h1>
+        <div id="nota-editar">
+            <h1 id="titulo-editar">Editar nota</h1>
 
-        <div class="container-edit">
-            <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
-            <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
+            <div class="container-edit">
+                <input id="titulo-nota" class="form-control" type="text" name="titulo" value="{{nota[1]}}">
+                <textarea id="contenido-nota" class="form-control" name="contenido" rows="16" placeholder="Escribe aqui el contenido">{{nota[2]}}</textarea>
+            </div>
+        </div>
+
+        <div id="nota-borrar">
+            <h2>Borrar nota</h2>
+            <p>No hay vuelta atrás.</p>
+            <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
+                <input class="btn btn-danger" type="submit" value="Borrar">
+            </a>
         </div>
     </div>
 
@@ -68,5 +76,24 @@
         estado_guardar = false;
         viejo = $('#contenido-nota').val();
         setInterval(detectarCambio, 2000);
+    </script>
+    <script type="text/javascript">
+        estado_borrar = false;
+        $('#nota-borrar').hide();
+
+        $('#nota-borrar-btn').click(function() {
+            if(!estado_borrar)
+            {
+                $('#nota-editar').hide();
+                $('#nota-borrar').show();
+                estado_borrar = true;
+            }
+            else
+            {
+                $('#nota-editar').show();
+                $('#nota-borrar').hide();
+                estado_borrar = false;
+            }
+        });
     </script>
 {% endblock %}

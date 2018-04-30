@@ -43,3 +43,8 @@
 #titulo-nota {
     margin-bottom: 5px;
 }
+
+.fondo {
+    color: blue;
+    background-color: red;
+}
