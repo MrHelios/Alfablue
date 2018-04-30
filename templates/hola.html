@@ -7,16 +7,18 @@
         <div class="">
             <h2>Ultimas notas creadas</h2>
             {% for nota in notas %}
-                <div class="contenedor">
-                    <div class="caja-contenido">
-                        <a class="titulo-nota" href="{{url_for('notas_page.notaEditar',notas_id=nota[0])}}">
-                            <figure>
-                                <img src="{{url_for('static', filename='imagenes/file.jpeg')}}" alt="">
-                                <figcaption>
-                                    {{nota[1]}}
-                                </figcaption>
-                            </figure>
-                        </a>
+                <div class="">
+                    <div class="">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span>
+                                    <img class="imagen-nota" src="{{url_for('static', filename='imagenes/file.jpeg')}}" width="25" height="25" alt="">
+                                    <a class="titulo-nota" href="{{url_for('notas_page.notaEditar',notas_id=nota[0])}}">
+                                        {{nota[1]}}
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             {% endfor %}
