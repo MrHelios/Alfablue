@@ -23,7 +23,7 @@ def notaEditar(notas_id):
     nota = buscar_una_nota_por_id(notas_id)
     if request.method == 'POST':
         a,b=request.data.decode('utf-8').split('&contenido=')
-        a = a[7:]        
+        a = a[7:]
         actualizar_nota(notas_id, unquote(a), unquote(b))
         return redirect(url_for('notas_page.hola'))
     else:

@@ -9,7 +9,7 @@
             <a href="{{url_for('notas_page.hola')}}">Menu</a>
         </nav>
         <h1>Estas seguro que deseas borrar esta nota?</h1>
-        <form class="" action="{{url_for('notas_page.notaBorrar',notas_id=nota[0])}}" method="post">
+        <form class="" action="{{url_for('notas_page.notaBorrar',notas_id=nota[0])}}" method="delete">
             <input type="submit" value="Si">
         </form>
         <h2>{{nota[1]}}</h2>

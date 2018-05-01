@@ -34,9 +34,8 @@
         <div id="nota-borrar">
             <h2>Borrar nota</h2>
             <p>No hay vuelta atrás.</p>
-            <a href="{{url_for('notas_page.notaBorrar',notas_id=notas_id)}}">
-                <input class="btn btn-danger" type="submit" value="Borrar">
-            </a>
+            <a id="a-notaBorrar" href=""></a>
+            <input id="btn-notaBorrar" class="btn btn-danger" type="submit" value="Borrar">
         </div>
     </div>
 
@@ -94,6 +93,19 @@
                 $('#nota-borrar').hide();
                 estado_borrar = false;
             }
+        });
+    </script>
+    <script type="text/javascript">
+        $("#btn-notaBorrar").click(function() {
+            estado_guardar=false
+            $.ajax({
+                method: 'post',
+                url: "{{url_for('notas_page.notaBorrar', notas_id=notas_id)}}",
+                contentType: 'application/json',
+                data: {nota_id:"{{notas_id}}"}
+            }).done(function(){
+                window.location.replace("{{url_for('notas_page.hola')}}");
+            });
         });
     </script>
 {% endblock %}
