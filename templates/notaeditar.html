@@ -40,72 +40,12 @@
     </div>
 
     <script src="{{url_for('static', filename='jquery/jquery.min.js')}}"></script>
-    <script type="text/javascript">
-        function guardar() {
-            if(estado_guardar = true) {
-                t = document.getElementById("titulo-nota").value
-                c = document.getElementById("contenido-nota").value
-                $.ajax({
-                    method: 'POST',
-                    url: "{{url_for('notas_page.notaEditar', notas_id=notas_id)}}",
-                    contentType: 'application/json',
-                    data: {titulo: t, contenido: c}
-                }).done(function(){
-                    $('#titulo-editar-singuardado').attr('id','titulo-editar');
-                    viejo = $('#contenido-nota').val();
-                    estado_guardar = false;
-                });
-            }
-        };
-
-        setInterval(guardar, 15000);
+    <script src="{{url_for('static', filename='notas/js/notas.js')}}" type="text/javascript">
     </script>
-    <script type="text/javascript">
-        function detectarCambio() {
-            actual = $('#contenido-nota').val();
-            if(viejo == actual) {
-                viejo = actual;
-            }
-            else {
-                $('#titulo-editar').attr('id','titulo-editar-singuardado');
-                estado_guardar = true;
-            }
-        };
-
-        estado_guardar = false;
-        viejo = $('#contenido-nota').val();
-        setInterval(detectarCambio, 2000);
-    </script>
-    <script type="text/javascript">
-        estado_borrar = false;
-        $('#nota-borrar').hide();
-
-        $('#nota-borrar-btn').click(function() {
-            if(!estado_borrar)
-            {
-                $('#nota-editar').hide();
-                $('#nota-borrar').show();
-                estado_borrar = true;
-            }
-            else
-            {
-                $('#nota-editar').show();
-                $('#nota-borrar').hide();
-                estado_borrar = false;
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        $("#btn-notaBorrar").click(function() {
-            estado_guardar=false
-            $.ajax({
-                method: 'post',
-                url: "{{url_for('notas_page.notaBorrar', notas_id=notas_id)}}",
-                contentType: 'application/json',
-                data: {nota_id:"{{notas_id}}"}
-            }).done(function(){
-                window.location.replace("{{url_for('notas_page.hola')}}");
-            });
-        });
-    </script>
+     <script type="text/javascript">
+         URL_BORRAR = "{{url_for('notas_page.notaBorrar', notas_id=notas_id)}}"
+         URL_GUARDAR = "{{url_for('notas_page.notaEditar', notas_id=notas_id)}}"
+         URL_HOLA = "{{url_for('notas_page.hola')}}"
+         NOTA_ID = "{{notas_id}}"
+     </script>
 {% endblock %}
